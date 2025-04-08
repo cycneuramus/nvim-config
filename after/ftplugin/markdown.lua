@@ -8,4 +8,8 @@ map_surround("<C-'>", "`", "`", "Code")
 map_surround("<C-x>", "~~", "~~", "Strikethrough")
 map_surround("<C-l>", "[", "]()", "Link")
 
+-- Continue list items on newline (using commentstrings)
+vim.opt_local.comments = { "b:*", "b:-", "b:+", "n:>" }
+vim.opt_local.formatoptions:append("ro")
+
 -- vim.api.nvim_command("ZenMode")
