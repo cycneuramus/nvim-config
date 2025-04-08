@@ -38,42 +38,57 @@ return {
 			},
 			sections = {
 				lualine_a = {
-					"mode",
+					{
+						"mode",
+						separator = { left = "", right = "" },
+					},
 				},
 				lualine_b = {
 					{
 						function()
-							return "REC @" .. vim.fn.reg_recording()
+							return "󰑊 REC @" .. vim.fn.reg_recording()
 						end,
 						cond = function()
 							return vim.fn.reg_recording() ~= ""
 						end,
-						-- draw_empty = false,
 						color = "ErrorMsg",
-						separator = "",
+						separator = { left = "", right = "" },
+					},
+					{
+						"branch",
+						separator = { left = "", right = "" },
+					},
+					{
+						"diagnostics",
+						separator = { left = "", right = "" },
 					},
 				},
 				lualine_c = {
-					"branch",
-					"diagnostics",
-					"buffers",
+					{
+						"filetype",
+						icon_only = true,
+						padding = { right = 0, left = 1 },
+					},
+					"filename",
 				},
 				lualine_x = {},
 				lualine_y = {
 					{
 						"lsp_status",
 						icon = "",
+						separator = { left = "", right = "" },
 						symbols = {
 							done = "",
 						},
 					},
 				},
-				lualine_z = { "location" },
+				lualine_z = {
+					{
+						"location",
+						separator = { left = "", right = "" },
+					},
+				},
 			},
-			tabline = {},
-			winbar = {},
-			inactive_winbar = {},
-			extensions = {},
 		}
 		return opts
 	end,
