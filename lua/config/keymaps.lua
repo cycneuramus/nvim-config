@@ -16,6 +16,7 @@ map("n", "c", '"_c', { desc = "Change without yanking" })
 -- Add undo break-points
 map("i", ",", ",<c-g>u", { desc = "Undo breakpoint after comma" })
 map("i", ".", ".<c-g>u", { desc = "Undo breakpoint after period" })
+map("i", ":", ";<c-g>u", { desc = "Undo breakpoint after colon" })
 map("i", ";", ";<c-g>u", { desc = "Undo breakpoint after semicolon" })
 
 -- Searching
@@ -29,14 +30,14 @@ map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move line up" })
 map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move selection down" })
 map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move selection up" })
 
--- Clear search highlight
+-- Escaping
 local nohEsc = "<cmd>nohlsearch<CR><esc>"
 map("n", "<ESC>", nohEsc, { desc = "Clear search highlight" })
 map({ "n", "v", "i" }, "<C-c>", nohEsc, { desc = "Clear search highlight (C-c)" })
 
--- Easier brackets (for e.g. mini.bracketed)
-map({ "n", "o", "v" }, "ä", "[", { remap = true, desc = "Bracketed left" })
-map({ "n", "o", "v" }, "'", "]", { remap = true, desc = "Bracketed right" })
+-- Easier square brackets (for e.g. mini.bracketed)
+map({ "n", "o", "v" }, "å", "[", { remap = true, desc = "Left bracket" })
+map({ "n", "o", "v" }, "¨", "]", { remap = true, desc = "Right bracket" })
 
 -- Since the above remaps mark keybinds, do this instead:
 map("n", "m'", "'", { noremap = true, desc = "Jump to mark '" })
