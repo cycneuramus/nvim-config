@@ -55,36 +55,36 @@ map("n", "<leader>:", "<cmd>FzfLua command_history<CR>", { desc = "Command histo
 
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
-    desc = "LSP actions",
-    callback = function()
-        map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-        map("n", "gr", vim.lsp.buf.references, { desc = "Find references" })
-        map("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
-        map("n", "gs", vim.lsp.buf.signature_help, { desc = "Signature help" })
-        map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
-        map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
-    end,
+	desc = "LSP actions",
+	callback = function()
+		map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+		map("n", "gr", vim.lsp.buf.references, { desc = "Find references" })
+		map("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
+		map("n", "gs", vim.lsp.buf.signature_help, { desc = "Signature help" })
+		map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
+		map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+	end,
 })
 
 -- Map j and k to gj/gk, but only when no count is given
 map("n", "j", function()
-    local count = vim.v.count
-    if count == 0 then
-        return "gj"
-    elseif count > 5 then
-        return "m'" .. count .. "j"
-    else
-        return count .. "j"
-    end
+	local count = vim.v.count
+	if count == 0 then
+		return "gj"
+	elseif count > 5 then
+		return "m'" .. count .. "j"
+	else
+		return count .. "j"
+	end
 end, { expr = true, desc = "Visual line movement (j)" })
 
 map("n", "k", function()
-    local count = vim.v.count
-    if count == 0 then
-        return "gk"
-    elseif count > 5 then
-        return "m'" .. count .. "k"
-    else
-        return count .. "k"
-    end
+	local count = vim.v.count
+	if count == 0 then
+		return "gk"
+	elseif count > 5 then
+		return "m'" .. count .. "k"
+	else
+		return count .. "k"
+	end
 end, { expr = true, desc = "Visual line movement (k)" })
