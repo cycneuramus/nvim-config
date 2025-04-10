@@ -13,12 +13,6 @@ map("v", "u", "<Nop>", { desc = "Disable lowercase 'u' in visual mode" })
 map("n", "x", '"_x', { desc = "Delete character without yanking" })
 map("n", "c", '"_c', { desc = "Change without yanking" })
 
--- Add undo break-points
-map("i", ",", ",<c-g>u", { desc = "Undo breakpoint after comma" })
-map("i", ".", ".<c-g>u", { desc = "Undo breakpoint after period" })
-map("i", ":", ";<c-g>u", { desc = "Undo breakpoint after colon" })
-map("i", ";", ";<c-g>u", { desc = "Undo breakpoint after semicolon" })
-
 -- Searching
 map({ "n", "o" }, "-", "/", { silent = false, desc = "Search forward" })
 map("n", "_", ":%s//g<Left><Left>", { silent = false, desc = "Substitute in file" })
