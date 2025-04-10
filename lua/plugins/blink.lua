@@ -15,6 +15,9 @@ return {
 				enabled = true,
 				-- window = { show_documentation = false },
 			},
+			sources = {
+				default = { "lsp" },
+			},
 			completion = {
 				accept = {
 					auto_brackets = { enabled = true },
