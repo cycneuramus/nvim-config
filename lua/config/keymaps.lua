@@ -1,5 +1,8 @@
 local map = vim.keymap.set
 
+-- Leader key
+vim.g.mapleader = vim.keycode("<space>")
+
 -- More intuitive redo
 map("n", "U", "<C-r>", { desc = "Redo" })
 

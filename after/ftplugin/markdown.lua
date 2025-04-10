@@ -12,3 +12,4 @@ map_surround("<C-l>", "[", "]()", "Link")
 vim.opt_local.comments = { "b:*", "b:-", "b:+", "n:>" }
 vim.opt_local.formatoptions:append("ro")
 vim.opt_local.number = false
+vim.opt_local.signcolumn = "no"
