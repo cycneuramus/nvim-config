@@ -41,3 +41,18 @@ vim.o.undofile = true -- Enable persistent undo
 
 -- Clipboard
 vim.o.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Use system clipboard if not over SSH
+
+-- Disable unused built-ins
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_netrw = 0
+vim.g.loaded_netrwPlugin = 0
+vim.g.loaded_tarPlugin = 0
+vim.g.loaded_zipPlugin = 0
+vim.g.loaded_gzipPlugin = 0
+vim.g.loaded_matchit = 0
+vim.g.loaded_matchparen = 1
+vim.g.loaded_editorconfig = 0
+vim.g.loaded_tutor = 0
