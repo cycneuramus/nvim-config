@@ -1,6 +1,8 @@
 return {
 	"ja-ford/delaytrain.nvim",
 	event = "VeryLazy",
+	-- NOTE; plugin is disabled
+	enabled = false,
 	config = function()
 		require("delaytrain").setup({
 			delay_ms = 2000, -- How long repeated usage of a key should be prevented
