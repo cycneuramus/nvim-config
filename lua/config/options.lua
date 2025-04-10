@@ -54,5 +54,5 @@ vim.g.loaded_zipPlugin = 0
 vim.g.loaded_gzipPlugin = 0
 vim.g.loaded_matchit = 0
 vim.g.loaded_matchparen = 1
-vim.g.loaded_editorconfig = 0
 vim.g.loaded_tutor = 0
+vim.g.editorconfig = false

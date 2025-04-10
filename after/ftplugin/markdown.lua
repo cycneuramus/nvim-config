@@ -1,5 +1,5 @@
 local function map_surround(lhs, pre, post, desc)
-	vim.keymap.set("v", lhs, string.format("c%s<ESC>pa%s<ESC>", pre, post), { buffer = true, desc = desc })
+    vim.keymap.set("v", lhs, string.format("c%s<ESC>pa%s<ESC>", pre, post), { buffer = true, desc = desc })
 end
 
 map_surround("<C-b>", "**", "**", "Bold")

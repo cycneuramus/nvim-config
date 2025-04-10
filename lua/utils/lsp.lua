@@ -12,7 +12,9 @@ local M = {}
 M.root_globs = function(globs)
     for _, glob in ipairs(globs) do
         local match = get_glob_root(glob)
-        if match ~= nil then return match end
+        if match ~= nil then
+            return match
+        end
     end
     return nil
 end
