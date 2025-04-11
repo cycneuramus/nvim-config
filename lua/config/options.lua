@@ -51,29 +51,29 @@ vim.g.editorconfig = false
 
 -- FIXME: these seem to be sourced anyway (:scriptnames)
 local disabled_built_ins = {
-	"2html_plugin",
-	"getscript",
-	"getscriptPlugin",
-	"gzip",
-	"gzipPlugin",
-	"logipat",
-	"matchit",
-	"matchparen",
-	"netrw",
-	"netrwFileHandlers",
-	"netrwPlugin",
-	"netrwSettings",
-	"rrhelper",
-	"spellfile_plugin",
-	"tar",
-	"tarPlugin",
-	"tutor",
-	"vimball",
-	"vimballPlugin",
-	"zip",
-	"zipPlugin",
+    "2html_plugin",
+    "getscript",
+    "getscriptPlugin",
+    "gzip",
+    "gzipPlugin",
+    "logipat",
+    "matchit",
+    "matchparen",
+    "netrw",
+    "netrwFileHandlers",
+    "netrwPlugin",
+    "netrwSettings",
+    "rrhelper",
+    "spellfile_plugin",
+    "tar",
+    "tarPlugin",
+    "tutor",
+    "vimball",
+    "vimballPlugin",
+    "zip",
+    "zipPlugin",
 }
 
 for _, plugin in pairs(disabled_built_ins) do
-	vim.g["loaded_" .. plugin] = 1
+    vim.g["loaded_" .. plugin] = 1
 end

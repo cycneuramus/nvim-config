@@ -16,6 +16,9 @@ return {
                 lsp_format = "fallback",
             },
             formatters = {
+                stylua = {
+                    prepend_args = { "--indent-type", "Spaces" },
+                },
                 shfmt = {
                     prepend_args = { "-ci", "-sr" },
                 },
