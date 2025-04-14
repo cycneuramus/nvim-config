@@ -14,6 +14,11 @@ return {
             heading = {
                 position = "inline",
             },
+            overrides = {
+                buftype = {
+                    nofile = { enabled = false },
+                },
+            },
         })
     end,
 }
