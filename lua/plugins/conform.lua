@@ -10,6 +10,10 @@ return {
                 ["sh"] = { "shfmt" },
                 ["nim"] = { "nimpsort", "nph" },
                 ["hcl"] = { "nomadfmt" },
+                ["json"] = { "prettierd" },
+                ["yaml"] = { "prettierd" },
+                ["yaml.ansible"] = { "prettierd" },
+                ["markdown"] = { "mdformat" },
             },
             format_on_save = {
                 timeout_ms = 500,

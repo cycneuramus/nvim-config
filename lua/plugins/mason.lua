@@ -22,7 +22,9 @@ return {
                     "gopls", -- FIXME make conditional on go version
                     "hadolint", -- TODO: setup (or perhaps skip altogether)
                     "lua-language-server",
+                    "mdformat",
                     "nimlangserver",
+                    "prettierd",
                     "shellcheck",
                     "shfmt",
                     "stylua",
