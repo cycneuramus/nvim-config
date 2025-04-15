@@ -13,8 +13,9 @@ map("n", "q:", ":q", { desc = "Quit (correct q: typo)" })
 map("v", "u", "<Nop>", { desc = "Disable lowercase 'u' in visual mode" })
 
 -- Leverage blackhole register
-map("n", "x", '"_x', { desc = "Delete character without yanking" })
-map("n", "c", '"_c', { desc = "Change without yanking" })
+-- map("n", "x", '"_x', { desc = "Delete character without yanking" })
+map("n", "c", '"_c', { desc = "Change operator without yanking" })
+map("n", "C", '"_C', { desc = "Change to end of line without yanking" })
 
 -- Searching
 map({ "n", "o" }, "-", "/", { silent = false, desc = "Search forward" })
