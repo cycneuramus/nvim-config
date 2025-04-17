@@ -60,5 +60,20 @@ require("lazy").setup({
     },
     performance = {
         cache = { enabled = true },
+        rtp = {
+            disabled_plugins = {
+                "editorconfig",
+                "gzip",
+                "man",
+                "matchit",
+                "netrwPlugin",
+                "rplugin",
+                "spellfile",
+                "tarPlugin",
+                "tohtml",
+                "tutor",
+                "zipPlugin",
+            },
+        },
     },
 })
