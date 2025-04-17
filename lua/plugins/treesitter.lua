@@ -1,4 +1,4 @@
-local ensure = {
+local filetypes = {
     "awk",
     "bash",
     "caddy",
@@ -55,7 +55,7 @@ return {
     config = function()
         require("nvim-treesitter.configs").setup({
             auto_install = true,
-            ensure_installed = ensure,
+            ensure_installed = filetypes,
             highlight = { enable = true },
             indent = { enable = true },
             additional_vim_regex_highlighting = false,

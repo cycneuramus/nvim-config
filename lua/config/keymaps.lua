@@ -6,6 +6,7 @@ vim.g.mapleader = vim.keycode("<space>")
 -- More intuitive redo
 map("n", "U", "<C-r>", { desc = "Redo" })
 
+-- Convenience leader keymaps
 map("n", "<leader>w", vim.cmd.write, { desc = "Save" })
 map("n", "<leader>q", vim.cmd.quit, { desc = "Quit" })
 
@@ -57,19 +58,6 @@ map("n", "<leader>g", "<cmd>FzfLua live_grep_native<CR>", { desc = "Live grep" }
 map("n", "<leader>s", "<cmd>FzfLua lsp_document_symbols<CR>", { desc = "Document symbols" })
 map("n", "<leader>:", "<cmd>FzfLua command_history<CR>", { desc = "Command history" })
 
--- LSP
-vim.api.nvim_create_autocmd("LspAttach", {
-    desc = "LSP actions",
-    callback = function()
-        map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-        map("n", "gr", vim.lsp.buf.references, { desc = "Find references" })
-        map("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
-        map("n", "gs", vim.lsp.buf.signature_help, { desc = "Signature help" })
-        map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
-        map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
-    end,
-})
-
 -- Map j and k to gj/gk, but only when no count is given
 map("n", "j", function()
     local count = vim.v.count
@@ -92,3 +80,37 @@ map("n", "k", function()
         return count .. "k"
     end
 end, { expr = true, desc = "Visual line movement (k)" })
+
+-- Show (and then auto-hide) diagnostic virtual lines only on demand
+map("n", "<leader>d", function()
+    vim.diagnostic.config({
+        -- virtual_text = false,
+        virtual_lines = {
+            enabled = true,
+        },
+    })
+
+    vim.api.nvim_create_autocmd("CursorMoved", {
+        group = vim.api.nvim_create_augroup("line-diagnostics", {}),
+        once = true,
+        callback = function()
+            vim.diagnostic.config({
+                virtual_text = false,
+                virtual_lines = false,
+            })
+        end,
+    })
+end)
+
+-- LSP
+vim.api.nvim_create_autocmd("LspAttach", {
+    desc = "LSP actions",
+    callback = function()
+        map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+        map("n", "gr", vim.lsp.buf.references, { desc = "Find references" })
+        map("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
+        map("n", "gs", vim.lsp.buf.signature_help, { desc = "Signature help" })
+        map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
+        map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+    end,
+})
