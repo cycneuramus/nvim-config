@@ -1,3 +1,9 @@
+-- Disable unused built-ins
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+
 -- UI
 vim.o.termguicolors = true -- Enable true color support
 vim.o.number = true -- Show absolute line numbers
@@ -41,39 +47,3 @@ vim.o.undofile = true -- Enable persistent undo
 
 -- Clipboard
 vim.o.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Use system clipboard if not over SSH
-
--- Disable unused built-ins
-vim.g.loaded_python3_provider = 0
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_node_provider = 0
-vim.g.loaded_perl_provider = 0
-vim.g.editorconfig = false
-
--- FIXME: these seem to be sourced anyway (:scriptnames)
-local disabled_built_ins = {
-    "2html_plugin",
-    "getscript",
-    "getscriptPlugin",
-    "gzip",
-    "gzipPlugin",
-    "logipat",
-    "matchit",
-    "matchparen",
-    "netrw",
-    "netrwFileHandlers",
-    "netrwPlugin",
-    "netrwSettings",
-    "rrhelper",
-    "spellfile_plugin",
-    "tar",
-    "tarPlugin",
-    "tutor",
-    "vimball",
-    "vimballPlugin",
-    "zip",
-    "zipPlugin",
-}
-
-for _, plugin in pairs(disabled_built_ins) do
-    vim.g["loaded_" .. plugin] = 1
-end
