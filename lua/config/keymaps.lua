@@ -6,6 +6,9 @@ vim.g.mapleader = vim.keycode("<space>")
 -- More intuitive redo
 map("n", "U", "<C-r>", { desc = "Redo" })
 
+map("n", "<leader>w", vim.cmd.write, { desc = "Save" })
+map("n", "<leader>q", vim.cmd.quit, { desc = "Quit" })
+
 -- Prevent common mistake of q: instead of :q
 map("n", "q:", ":q", { desc = "Quit (correct q: typo)" })
 
