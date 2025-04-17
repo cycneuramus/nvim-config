@@ -14,6 +14,8 @@ return {
     end,
     opts = function()
         vim.o.laststatus = vim.g.lualine_laststatus
+        local diag = require("utils.diagnostics")
+
         local opts = {
             options = {
                 icons_enabled = true,
@@ -61,6 +63,12 @@ return {
                     {
                         "diagnostics",
                         separator = { left = "", right = "" },
+                        symbols = {
+                            error = diag.symbols.error .. " ",
+                            warn = diag.symbols.warn .. " ",
+                            info = diag.symbols.info .. " ",
+                            hint = diag.symbols.hint .. " ",
+                        },
                     },
                 },
                 lualine_c = {
