@@ -1,11 +1,13 @@
 return {
     "saghen/blink.cmp",
     version = "1.*",
-    event = "VeryLazy",
+    event = "InsertEnter",
     config = function()
         require("blink.cmp").setup({
             keymap = {
-                preset = "super-tab",
+                preset = "enter",
+                ["<Tab>"] = { "select_next", "fallback" },
+                ["<S-Tab>"] = { "select_prev", "fallback" },
             },
             fuzzy = { implementation = "prefer_rust_with_warning" },
             cmdline = {
@@ -16,11 +18,13 @@ return {
                 -- window = { show_documentation = false },
             },
             sources = {
-                default = { "lsp" },
+                default = { "lsp", "path", "buffer" },
             },
             completion = {
                 accept = {
-                    auto_brackets = { enabled = true },
+                    auto_brackets = {
+                        enabled = true,
+                    },
                 },
                 documentation = {
                     auto_show = true,
@@ -34,6 +38,7 @@ return {
                     scrollbar = false,
                     winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
                     draw = {
+                        treesitter = { "lsp" },
                         columns = {
                             { "label", "label_description", gap = 1 },
                             { "kind_icon", "kind", gap = 1 },
