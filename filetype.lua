@@ -6,6 +6,10 @@ vim.filetype.add({
         [".env"] = "dotenv",
     },
     pattern = {
+        [".*/waybar/config"] = "jsonc",
+        [".*/mako/config"] = "dosini",
+        [".*/dunstrc"] = "dosini",
+        [".*/kitty/.+%.conf"] = "kitty",
         ["%.env%.[%w_.-]+"] = "dotenv",
         ["docker%-compose%.y.?ml"] = "yaml.docker-compose",
         [".*/[^/]*ansible[^/]*/.*%.ya?ml"] = "yaml.ansible",
