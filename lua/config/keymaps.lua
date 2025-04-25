@@ -81,24 +81,10 @@ map("n", "k", function()
     end
 end, { expr = true, desc = "Visual line movement (k)" })
 
--- Show (and then auto-hide) diagnostic virtual lines only on demand
+-- Toggle virtual lines diagnostics on-demand
 map("n", "<leader>d", function()
     vim.diagnostic.config({
-        -- virtual_text = false,
-        virtual_lines = {
-            enabled = true,
-        },
-    })
-
-    vim.api.nvim_create_autocmd("CursorMoved", {
-        group = vim.api.nvim_create_augroup("line-diagnostics", {}),
-        once = true,
-        callback = function()
-            vim.diagnostic.config({
-                virtual_text = false,
-                virtual_lines = false,
-            })
-        end,
+        virtual_lines = not vim.diagnostic.config().virtual_lines,
     })
 end)
 
