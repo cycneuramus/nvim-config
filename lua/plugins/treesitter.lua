@@ -49,6 +49,16 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = { "VeryLazy" },
+    init = function()
+        -- Ensure syntax highlighting of Markdown code blocks works with render-markdown.nvim
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "markdown",
+            once = true,
+            callback = function()
+                require("lazy").load({ plugins = { "nvim-treesitter" }, wait = true })
+            end,
+        })
+    end,
     cond = function()
         return vim.api.nvim_buf_line_count(0) < 10000
     end,
