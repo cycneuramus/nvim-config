@@ -6,6 +6,7 @@ vim.filetype.add({
         [".env"] = "dotenv",
     },
     pattern = {
+        ["Caddyfile%.?tpl?"] = "caddy",
         [".*/waybar/config"] = "jsonc",
         [".*/mako/config"] = "dosini",
         [".*/dunstrc"] = "dosini",
