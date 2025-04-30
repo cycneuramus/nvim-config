@@ -20,6 +20,8 @@ map("v", "u", "<Nop>", { desc = "Disable lowercase 'u' in visual mode" })
 -- map("n", "x", '"_x', { desc = "Delete character without yanking" })
 map("n", "c", '"_c', { desc = "Change operator without yanking" })
 map("n", "C", '"_C', { desc = "Change to end of line without yanking" })
+map("v", "c", '"_c', { desc = "Change operator without yanking" })
+map("v", "C", '"_C', { desc = "Change to end of line without yanking" })
 
 -- Searching
 map({ "n", "o" }, "-", "/", { silent = false, desc = "Search forward" })
@@ -60,43 +62,43 @@ map("n", "<leader>:", "<cmd>FzfLua command_history<CR>", { desc = "Command histo
 
 -- Map j and k to gj/gk, but only when no count is given
 map("n", "j", function()
-    local count = vim.v.count
-    if count == 0 then
-        return "gj"
-    elseif count > 5 then
-        return "m'" .. count .. "j"
-    else
-        return count .. "j"
-    end
+	local count = vim.v.count
+	if count == 0 then
+		return "gj"
+	elseif count > 5 then
+		return "m'" .. count .. "j"
+	else
+		return count .. "j"
+	end
 end, { expr = true, desc = "Visual line movement (j)" })
 
 map("n", "k", function()
-    local count = vim.v.count
-    if count == 0 then
-        return "gk"
-    elseif count > 5 then
-        return "m'" .. count .. "k"
-    else
-        return count .. "k"
-    end
+	local count = vim.v.count
+	if count == 0 then
+		return "gk"
+	elseif count > 5 then
+		return "m'" .. count .. "k"
+	else
+		return count .. "k"
+	end
 end, { expr = true, desc = "Visual line movement (k)" })
 
 -- Toggle virtual lines diagnostics on-demand
 map("n", "<leader>d", function()
-    vim.diagnostic.config({
-        virtual_lines = not vim.diagnostic.config().virtual_lines,
-    })
+	vim.diagnostic.config({
+		virtual_lines = not vim.diagnostic.config().virtual_lines,
+	})
 end)
 
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
-    desc = "LSP actions",
-    callback = function()
-        map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-        map("n", "gr", vim.lsp.buf.references, { desc = "Find references" })
-        map("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
-        map("n", "gs", vim.lsp.buf.signature_help, { desc = "Signature help" })
-        map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
-        map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
-    end,
+	desc = "LSP actions",
+	callback = function()
+		map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+		map("n", "gr", vim.lsp.buf.references, { desc = "Find references" })
+		map("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
+		map("n", "gs", vim.lsp.buf.signature_help, { desc = "Signature help" })
+		map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
+		map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+	end,
 })
