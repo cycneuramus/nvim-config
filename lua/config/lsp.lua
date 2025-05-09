@@ -3,7 +3,8 @@ local servers = {
     "bashls",
     "gopls",
     "luals",
-    "nimlangserver",
+    -- "nimlangserver",
+    "nimlsp",
     "pyright",
 }
 

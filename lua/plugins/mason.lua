@@ -24,6 +24,7 @@ return {
                     "lua-language-server",
                     "mdformat",
                     "nimlangserver",
+                    "nimlsp",
                     "prettierd",
                     "shellcheck",
                     "shfmt",
