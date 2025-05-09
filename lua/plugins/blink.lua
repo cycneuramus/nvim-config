@@ -19,6 +19,9 @@ return {
             },
             sources = {
                 default = { "lsp", "path", "buffer" },
+                per_filetype = {
+                    markdown = { "path" },
+                },
             },
             completion = {
                 accept = {
