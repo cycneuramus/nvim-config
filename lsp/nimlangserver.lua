@@ -10,6 +10,7 @@ vim.lsp.config.nimlangserver = {
 	single_file_support = true,
 	settings = {
 		nim = {
+			nimsuggestPath = vim.fn.expand("~/.local/share/nim/.nimble/bin/nimsuggest"),
 			notificationVerbosity = "none",
 			formatOnSave = false,
 			checkOnSave = true,
