@@ -20,6 +20,9 @@ return {
                 lsp_format = "fallback",
             },
             formatters = {
+                mdformat = {
+                    prepend_args = { "--number" },
+                },
                 stylua = {
                     prepend_args = { "--indent-type", "Spaces" },
                 },
