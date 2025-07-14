@@ -8,6 +8,8 @@ vim.lsp.config.pyright = {
                 diagnosticMode = "openFilesOnly",
                 typeCheckingMode = "strict",
                 diagnosticSeverityOverrides = {
+                    reportMissingTypeStubs = false,
+                    reportUnknownLambdaType = false,
                     reportUnknownMemberType = false,
                 },
                 autoImportCompletions = true,
