@@ -12,7 +12,9 @@ return {
             fuzzy = { implementation = "prefer_rust_with_warning" },
             cmdline = {
                 enabled = true,
-                menu = { auto_show = false },
+                completion = {
+                    menu = { auto_show = false },
+                },
                 keymap = {
                     ["<CR>"] = { "accept_and_enter", "fallback" },
                 },
