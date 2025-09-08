@@ -26,9 +26,9 @@ return {
                 stylua = {
                     prepend_args = { "--indent-type", "Spaces" },
                 },
-                shfmt = {
-                    prepend_args = { "-ci", "-sr" },
-                },
+                -- shfmt = {
+                --     prepend_args = { "-ci", "-sr" },
+                -- },
                 nimpsort = {
                     inherit = false,
                     command = "nimpsort",
