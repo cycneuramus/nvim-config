@@ -62,7 +62,7 @@ require("lazy").setup({
         cache = { enabled = true },
         rtp = {
             disabled_plugins = {
-                "editorconfig",
+                -- "editorconfig",
                 "gzip",
                 "man",
                 "matchit",
