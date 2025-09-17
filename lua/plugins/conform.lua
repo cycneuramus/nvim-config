@@ -11,6 +11,7 @@ return {
                 ["nim"] = { "nimpsort", "nph" },
                 ["hcl"] = { "nomadfmt" },
                 ["json"] = { "prettierd" },
+                ["jsonc"] = { "prettierd" },
                 ["yaml"] = { "prettierd" },
                 ["yaml.ansible"] = { "prettierd" },
                 ["markdown"] = { "mdformat" },
