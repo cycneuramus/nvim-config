@@ -9,7 +9,7 @@ return {
                 ["lua"] = { "stylua" },
                 ["sh"] = { "shfmt" },
                 ["nim"] = { "nimpsort", "nph" },
-                ["hcl"] = { "nomadfmt" },
+                ["hcl"] = { "nomad_fmt" },
                 ["json"] = { "prettierd" },
                 ["jsonc"] = { "prettierd" },
                 ["yaml"] = { "prettierd" },
@@ -41,11 +41,6 @@ return {
                     command = "nph",
                     args = { "$FILENAME" },
                     stdin = false,
-                },
-                nomadfmt = {
-                    inherit = false,
-                    command = "nomad",
-                    args = { "fmt", "-" },
                 },
             },
         })
