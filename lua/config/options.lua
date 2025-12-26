@@ -14,7 +14,7 @@ vim.o.ruler = false -- Disable default ruler
 vim.o.wrap = true -- Wrap lines at word boundaries
 vim.o.linebreak = true -- Wrap lines at convenient points
 vim.o.cmdheight = 0 -- Hide command bar
-vim.o.laststatus = 0 -- Hide statusline (requires external one)
+vim.o.laststatus = 3 -- Show one single statusline across all windows
 vim.opt.shortmess:append("sI") -- Skip nvim intro
 vim.opt.diffopt = "internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram"
 
