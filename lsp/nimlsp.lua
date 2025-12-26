@@ -1,6 +1,6 @@
 local lsputil = require("utils/lsp")
 
-vim.lsp.config.nimlsp = {
+return {
     cmd = { "nimlsp" },
     cmd_env = {
         HOME = vim.fn.expand("~/.local/share/nim"),

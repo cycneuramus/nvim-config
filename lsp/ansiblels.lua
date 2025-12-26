@@ -1,4 +1,4 @@
-vim.lsp.config.ansiblels = {
+return {
     cmd = { "ansible-language-server", "--stdio" },
     filetypes = { "yaml.ansible" },
     root_markers = { "inventory.yml" },
