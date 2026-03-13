@@ -11,6 +11,8 @@ return {
                     reportMissingTypeStubs = false,
                     reportUnknownLambdaType = false,
                     reportUnknownMemberType = false,
+                    reportUnknownVariableType = false,
+                    reportUnknownArgumentType = false,
                 },
                 autoImportCompletions = true,
                 useLibraryCodeForTypes = true,
