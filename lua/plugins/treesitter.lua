@@ -22,7 +22,6 @@ local filetypes = {
     "ini",
     "jinja",
     "json",
-    "jsonc",
     "luadoc",
     "luap",
     "markdown",
@@ -48,8 +47,24 @@ local filetypes = {
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    branch = "main",
     event = { "VeryLazy" },
     init = function()
+        local alreadyInstalled = require("nvim-treesitter.config").get_installed()
+        local parsersToInstall = vim.iter(filetypes)
+            :filter(function(parser)
+                return not vim.tbl_contains(alreadyInstalled, parser)
+            end)
+            :totable()
+        require("nvim-treesitter").install(parsersToInstall)
+        vim.api.nvim_create_autocmd("FileType", {
+            callback = function()
+                -- Enable treesitter highlighting and disable regex syntax
+                pcall(vim.treesitter.start)
+                -- Enable treesitter-based indentation
+                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end,
+        })
         -- Ensure syntax highlighting of Markdown code blocks works with render-markdown.nvim
         vim.api.nvim_create_autocmd("FileType", {
             pattern = "markdown",
@@ -63,7 +78,7 @@ return {
         return vim.api.nvim_buf_line_count(0) < 10000
     end,
     config = function()
-        require("nvim-treesitter.configs").setup({
+        require("nvim-treesitter").setup({
             auto_install = true,
             ensure_installed = filetypes,
             highlight = { enable = true },
