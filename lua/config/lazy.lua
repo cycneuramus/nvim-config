@@ -18,7 +18,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
         "--filter=blob:none",
         "--branch=stable",
         "--single-branch",
-        "--depth 1",
         lazyrepo,
         lazypath,
     })

@@ -14,6 +14,7 @@ return {
             require("mason-tool-installer").setup({
                 ensure_installed = {
                     "ansible-language-server",
+                    "ansible-lint",
                     "bash-language-server",
                     "basedpyright",
                     "dockerfile-language-server", -- TODO: setup
@@ -24,7 +25,7 @@ return {
                     "lua-language-server",
                     "mdformat",
                     "nimlangserver",
-                    "nimlsp",
+                    -- "nimlsp",
                     "prettierd",
                     "shellcheck",
                     "shfmt",
