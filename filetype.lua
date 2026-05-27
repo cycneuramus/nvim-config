@@ -7,6 +7,7 @@ vim.filetype.add({
     },
     pattern = {
         ["Caddyfile.*"] = "caddy",
+        [".*.y.?ml.*"] = "yaml",
         [".*/waybar/config"] = "jsonc",
         [".*/mako/config"] = "dosini",
         [".*/isyncrc"] = "config",
