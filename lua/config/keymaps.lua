@@ -10,8 +10,8 @@ map("n", "U", "<C-r>", { desc = "Redo" })
 map("n", "<leader>w", vim.cmd.write, { desc = "Save" })
 map("n", "<leader>q", vim.cmd.quit, { desc = "Quit" })
 
--- Prevent common mistake of q: instead of :q
-map("n", "q:", ":q", { desc = "Quit (correct q: typo)" })
+-- Prevent common mistake of q: instead of :q (commented out since it introduces delay on 'q')
+-- map("n", "q:", ":q", { desc = "Quit (correct q: typo)" })
 
 -- Remap potentially harmful all-lowercase command
 map("v", "u", "<Nop>", { desc = "Disable lowercase 'u' in visual mode" })
