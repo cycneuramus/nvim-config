@@ -57,12 +57,20 @@ return {
             end)
             :totable()
         require("nvim-treesitter").install(parsersToInstall)
+        -- Tree-sitter indentation conditional on the existence of an indendation query
         vim.api.nvim_create_autocmd("FileType", {
-            callback = function()
-                -- Enable treesitter highlighting and disable regex syntax
-                pcall(vim.treesitter.start)
-                -- Enable treesitter-based indentation
-                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            callback = function(ev)
+                pcall(vim.treesitter.start, ev.buf)
+
+                local ft = vim.bo[ev.buf].filetype
+                local lang = vim.treesitter.language.get_lang(ft)
+
+                if lang and vim.treesitter.query.get(lang, "indents") then
+                    vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                else
+                    vim.bo[ev.buf].indentexpr = ""
+                    vim.bo[ev.buf].autoindent = true
+                end
             end,
         })
         -- Ensure syntax highlighting of Markdown code blocks works with render-markdown.nvim
