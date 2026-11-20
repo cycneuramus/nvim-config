@@ -3,16 +3,12 @@ return {
     filetypes = { "python" },
     root_markers = { "setup.py", "setup.cfg", "requirements.txt", "pyproject.toml" },
     settings = {
-        python = {
+        basedpyright = {
             analysis = {
                 diagnosticMode = "openFilesOnly",
-                typeCheckingMode = "strict",
+                typeCheckingMode = "standard",
                 diagnosticSeverityOverrides = {
                     reportMissingTypeStubs = false,
-                    reportUnknownLambdaType = false,
-                    reportUnknownMemberType = false,
-                    reportUnknownVariableType = false,
-                    reportUnknownArgumentType = false,
                 },
                 autoImportCompletions = true,
                 useLibraryCodeForTypes = true,
